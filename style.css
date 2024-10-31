@@ -1,0 +1,43 @@
+.navbar {
+    transition: background-color 0.3s;
+    background-color: rgba(255, 255, 255, 0.0);
+    position: fixed;
+    width: 100%;
+    z-index: 20;
+}
+
+.navbar-white {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.bg-section {
+    background-image: url('assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 100vh;
+}
+
+.bg-opacity {
+    background-color: rgba(255, 255, 255, 0.7);
+    position: relative;
+    z-index: 10;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .custom-swal {
+        width: 70%; 
+        font-size: 6px;
+    }
+}
