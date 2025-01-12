@@ -55,17 +55,17 @@
                 <a class="text-gray-600 hover:text-green-600 transition" href="#"><i class="fas fa-home"></i> Home</a>
                 <a class="text-gray-600 hover:text-green-600 transition" href="#"><i class="fas fa-info-circle"></i> Informasi</a>
             </div>
-            <a href="#" onclick="showAlert()" class="hidden lg:block px-4 py-2 text-white bg-green-600 hover:bg-green-700 rounded-lg transition">Daftar</a>
+            <a href="#" class="hidden lg:block px-4 py-2 text-white bg-green-600 hover:bg-green-700 rounded-lg transition">Daftar</a>
         </div>
         <div class="lg:hidden relative">
             <button class="block focus:outline-none mr-5" id="menu-btn" aria-label="Toggle Menu">
                 <i class="fas fa-bars text-xl"></i>
             </button>
-            <div id="mobile-menu" class="absolute right-0 w-[150px] mr-2 bg-white shadow-lg rounded-lg mt-3 hidden z-50">
+            <div id="mobile-menu" class="absolute right-0 w-[150px] mr-2 bg-white shadow-lg rounded-lg mt-3 hidden z-50 ">
                 <div class="flex flex-col">
                     <a class="block px-4 py-2 text-gray-600 hover:bg-green-100" href="#"><i class="fas fa-home"></i> Home</a>
                     <a class="block px-4 py-2 text-gray-600 hover:bg-green-100" href="#"><i class="fas fa-info-circle"></i> Informasi</a>
-                    <a href="#" onclick="showAlert()" class="mt-2 block px-4 py-2 text-white bg-green-600 hover:bg-green-700 rounded-lg transition">Daftar</a>
+                    <a href="https://forms.gle/G6PnthJYjGZYjhV2A"  class="mt-2 block px-4 py-1 mx-1 my-1 text-white bg-green-600 hover:bg-green-700 rounded-lg transition">Daftar</a>
                 </div>
             </div>
         </div>
@@ -82,8 +82,8 @@
             <p class="text-xl italic sm:text-md mb-4 md:text-sm lg:text-lg lg:mt-2">Bahrul Ulum Tambakberas, Jombang</p>
             <h2 class="text-md font-semibold mb-4">Pendaftaran Santri Baru An-Najach 2025 - 2026</h2>
             <div class="flex flex-col sm:flex-row gap-2 mt-4 justify-center lg:justify-start">
-                <a href="#" onclick="showAlert()" class="px-3 py-3 text-white bg-green-600 hover:bg-green-700 rounded-lg transition w-full sm:w-auto text-center lg:px-10 sm:px-9">Daftar</a>
-                <a href="#" onclick="showAlert()" class="px-3 py-3 text-white bg-green-600 hover:bg-green-700 rounded-lg transition w-full sm:w-auto text-center lg:px-9 sm:px-9">Panduan</a>
+                <a href="https://forms.gle/G6PnthJYjGZYjhV2A" class="px-3 py-3 text-white bg-green-600 hover:bg-green-700 rounded-lg transition w-full sm:w-auto text-center lg:px-10 sm:px-9">Daftar</a>
+                <a href="#" class="px-3 py-3 text-white bg-green-600 hover:bg-green-700 rounded-lg transition w-full sm:w-auto text-center lg:px-9 sm:px-9">Panduan</a>
             </div>
         </div>
     </div>
@@ -93,11 +93,11 @@
     <div class="container mx-auto text-center px-7">
         <h2 class="text-xl font-bold text-white mb-8">Download Brosur dan Rincian Pembayaran</h2>
         <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
-            <a href="#" onclick="showAlert()" class="bg-white text-green-600 rounded-lg shadow-lg p-4 flex items-center justify-center transition hover:bg-green-100">
+            <a href="#" id="downloadBtn1" class="bg-white text-green-600 rounded-lg shadow-lg p-4 flex items-center justify-center transition hover:bg-green-100">
                 <i class="fas fa-file-download mr-2"></i>
                 Download Brosur
             </a>
-            <a href="#" onclick="showAlert()" class="bg-white text-green-600 rounded-lg shadow-lg p-4 flex items-center justify-center transition hover:bg-green-100">
+            <a href="#" id="downloadBtn2" class="bg-white text-green-600 rounded-lg shadow-lg p-4 flex items-center justify-center transition hover:bg-green-100">
                 <i class="fas fa-file-download mr-2 "></i>
                 Rincian Pendaftaran
             </a>
@@ -125,8 +125,8 @@
                 <div class="w-16 h-16 bg-white text-green-600 border-4 border-green-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">
                     2
                 </div>
-                <h3 class="text-xl font-semibold mb-2">Download Bukti Pendaftaran</h3>
-                <p>Setelah form terisi, unduh bukti pendaftaran dan tunggu admin menghubungi melalui WhatsApp untuk informasi lebih lanjut.</p>
+                <h3 class="text-xl font-semibold mb-2"> screenshot Bukti Pendaftaran </h3>
+                <p>Setelah form terisi, screenshot bukti pendaftaran melalui WhatsApp.</p>
             </div>
 
             <!-- Step 3 -->
@@ -184,7 +184,7 @@
                     1. Apa saja syarat pendaftaran?
                 </button>
                 <div id="faq-1" class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                    <p class="text-gray-700 mt-2">Syarat pendaftaran meliputi fotokopi akta kelahiran, fotokopi kartu keluarga, dan fotokopi rapor terakhir.</p>
+                    <p class="text-gray-700 mt-2">Syarat pendaftaran meliputi fotokopi akta kelahiran, fotokopi kartu keluarga, dan fotokopi ktp Orang Tua.</p>
                 </div>
             </div>
 
@@ -211,7 +211,7 @@
             <!-- FAQ 4 -->
             <div class="faq-item border-b-2 border-gray-300 pb-4">
                 <button class="faq-question w-full text-left text-lg font-semibold text-green-600 focus:outline-none" onclick="toggleFAQ(4)">
-                    4. Bagaimana cara mengkonfirmasi pendaftaran?
+                    4. Bagaimana cara mengkonfirmasi pembayaran?
                 </button>
                 <div id="faq-4" class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
                     <p class="text-gray-700 mt-2">Setelah pembayaran, kirimkan bukti pembayaran ke admin melalui WhatsApp atau datang langsung ke pondok untuk konfirmasi.</p>
@@ -239,8 +239,8 @@
             <img src="assets/logo.png" alt="Logo" class="h-16 mx-auto md:mx-0 mb-2">
             <p class="mb-2">&copy; 2024 PCN Boarding School. All Rights Reserved.</p>
             <p class="text-sm">Alamat: Jl. kH Wahab Hasbulloh Gg III Tambakberas, Jombang</p>
-            <p class="text-sm">Telepon: xxxx xxxx xxxx</p>
-            <p class="text-sm">Email: psbppcn@gmail.com</p>
+            <p class="text-sm">Telepon:+62 878-5956-3918</p>
+            <p class="text-sm">Email: psbpcn@gmail.com</p>
         </div>
 
         <!-- Google Maps Embed -->
@@ -289,15 +289,43 @@
         window.addEventListener('scroll', handleNavbarBackground);
     });
 
-    function showAlert() {
-        swal({
-            title: "Maaf! Ngakunya Santri!!",
-            text: "TAPI NINGGALIN SHOLAT???!! TOBATTT O LEKKK",
-            icon: "warning",
-            button: "Tutup",
-            className: "custom-swal",
+    // Fungsi untuk mengunduh Brosur Pondok
+    document.getElementById('downloadBtn1').addEventListener('click', function () {
+            // URL file yang akan diunduh
+            const fileUrl = 'assets/brosurRincian/BROSUR.pdf'; 
+            const fileName = 'Brosur Pondok.pdf'; 
+
+            // Membuat elemen <a> secara dinamis
+            const link = document.createElement('a');
+            link.href = fileUrl;
+            link.download = fileName;
+
+            // Menambahkan elemen ke DOM, lalu klik
+            document.body.appendChild(link);
+            link.click();
+
+            // Menghapus elemen setelah selesai
+            document.body.removeChild(link);
         });
-    }
+
+        // Fungsi untuk mengunduh Rincian Pembayaran Pondok
+    document.getElementById('downloadBtn2').addEventListener('click', function () {
+            // URL file yang akan diunduh
+            const fileUrl = 'assets/brosurRincian/RINCIAN PEMBAYARAN.pdf'; 
+            const fileName = 'Rincian Pembayaran.pdf'; 
+
+            // Membuat elemen <a> secara dinamis
+            const link = document.createElement('a');
+            link.href = fileUrl;
+            link.download = fileName;
+
+            // Menambahkan elemen ke DOM, lalu klik
+            document.body.appendChild(link);
+            link.click();
+
+            // Menghapus elemen setelah selesai
+            document.body.removeChild(link);
+        });
 </script>
 
 </body>
