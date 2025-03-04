@@ -27,6 +27,21 @@ if (currentElement.style.maxHeight === '0px' || !currentElement.style.maxHeight)
 }
 }
 
+// untuk chek book 
+
+const agreeCheckbox = document.getElementById('agree-terms');
+const submitButton = document.getElementById('submit-btn');
+
+agreeCheckbox.addEventListener('change', function() {
+    if (this.checked) {
+        submitButton.disabled = false;
+        submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
+    } else {
+        submitButton.disabled = true;
+        submitButton.classList.add('opacity-50', 'cursor-not-allowed');
+    }
+});
+
 // Anismasi
 
 function isInViewport(element) {
