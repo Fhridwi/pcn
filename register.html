@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register || PSB - PPCN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-green-50 flex items-center justify-center min-h-screen">
+
+    <section class="w-full max-w-md p-8 ">
+        <div class="flex justify-center mb-6 w-16 mx-auto">
+            <img src="assets/logo.png" alt="logo" class="mb-4">
+        </div>
+        <div class="-mt-5 mb-10 text-center">
+            <h1 class="font-semibold text-2xl font-mono">Registrasi Santri</h1>
+            <h3 class="font-bold">PP. Cemerlang An-Najach</h3>
+        </div>
+        <form action="#" method="POST" class="space-y-2">
+            
+            <!-- Full Name Input -->
+            <div>
+                <label for="namaLengkap" class="block text-sm font-semibold text-gray-700">Nama Lengkap</label>
+                <input type="text" id="namaLengkap" name="namaLengkap" required placeholder="Masukkan Nama Lengkap" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+            
+            <!-- Email Input -->
+            <div>
+                <label for="email" class="block text-sm font-semibold text-gray-700">Email</label>
+                <input type="email" id="email" name="email" required placeholder="Masukkan Email" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+
+            <!-- Password Input -->
+            <div>
+                <label for="password" class="block text-sm font-semibold text-gray-700">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Masukkan Password" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+
+            <!-- Confirm Password Input -->
+            <div>
+                <label for="confirm-password" class="block text-sm font-semibold text-gray-700">Konfirmasi Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required placeholder="Konfirmasi Password" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+
+            <!-- Register Button -->
+            <div>
+                <button type="submit" class="w-full py-2 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300">Daftar</button>
+            </div>
+
+            <!-- Login Link -->
+            <div class="text-center">
+                <a href="#" class="text-sm text-green-600 hover:text-green-700">Sudah Punya Akun? Login</a>
+            </div>
+
+        </form>
+    </section>
+
+</body>
+
+</html>

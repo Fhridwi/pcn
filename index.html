@@ -42,7 +42,7 @@
 
 <body class="bg-gray-100" data-aos-easing="ease-in-out" data-aos-duration="600">
 
-<header class="shadow fixed top-0 left-0 w-full z-50 navbar navbar-white">
+<header class="shadow fixed -top-1 left-0 w-full z-50 navbar navbar-white">
     <nav class="container mx-auto flex items-center justify-between py-4 ">
         <a class="block md:hidden text-2xl font-bold" href="#">
             <img src="assets/logo-j.png" alt="logo" class="w-36 ml-4">
@@ -89,8 +89,8 @@
     </div>
 </section>
 
-<section class="py-16 fade-in visible" style="background: linear-gradient(to right, #4caf50, #81c784);" data-aos="zoom-in">
-    <div class="container mx-auto text-center px-7">
+<section class="py-16 fade-in visible" style="background: linear-gradient(to right, #4caf50, #81c784);" >
+    <div class="container mx-auto text-center px-7" data-aos="zoom-in">
         <h2 class="text-xl font-bold text-white mb-8">Download Brosur dan Rincian Pembayaran</h2>
         <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
             <a href="#" id="downloadBtn1" class="bg-white text-green-600 rounded-lg shadow-lg p-4 flex items-center justify-center transition hover:bg-green-100">
@@ -104,6 +104,20 @@
         </div>
     </div>
 </section>
+
+
+<!-- Program Kami -->
+<section>
+    <div class="container mx-auto">
+        <h2 class="text-xl font-bold text-center mt-10 ">Program Kami</h2>
+        <div>
+            <div class="bg-white w-auto">
+                <h2>ITENSIF</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <section class="bg-white py-12 p-2" data-aos="fade-up">
     <div class="container mx-auto px-4">
@@ -125,8 +139,8 @@
                 <div class="w-16 h-16 bg-white text-green-600 border-4 border-green-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">
                     2
                 </div>
-                <h3 class="text-xl font-semibold mb-2"> screenshot Bukti Pendaftaran </h3>
-                <p>Setelah form terisi, screenshot bukti pendaftaran melalui WhatsApp.</p>
+                <h3 class="text-xl font-semibold mb-2"> Tunggu Admin mengkonfirmasi Pendaftaran </h3>
+                <p>Setelah admin mengkonfirmasi, maka anda akan mendapatkan file pdf yang akan dikirimkan ke email anda. </p>
             </div>
 
             <!-- Step 3 -->
@@ -160,9 +174,23 @@
     </div>
 </section>
 
+
+
+
+<!-- section  Galley -->
+<section>
+
+</section>
+
+
+
+
+
+
+
 <!-- Section untuk WhatsApp -->
-<section class="bg-green-600 py-8 p-3" data-aos="fade-up">
-    <div class="container mx-auto text-center">
+<section class="bg-green-600 py-8 p-3" >
+    <div class="container mx-auto text-center " >
         <h2 class="text-2xl font-bold text-white mb-4">Butuh Bantuan Lebih Lanjut?</h2>
         <p class="text-white mb-4">Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami melalui WhatsApp.</p>
         <a href="https://wa.me/6285792336956" target="_blank" class="bg-white text-green-600 rounded-lg px-6 py-3 text-lg font-semibold transition duration-300 hover:bg-green-100">
@@ -171,7 +199,7 @@
     </div>
 </section>
 
-<section class="bg-white py-12 p-5" data-aos="fade-up">
+<section class="bg-white py-12 p-5">
     <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-8">FAQ Pendaftaran Santri Baru</h2>
 
@@ -289,41 +317,31 @@
         window.addEventListener('scroll', handleNavbarBackground);
     });
 
-    // Fungsi untuk mengunduh Brosur Pondok
     document.getElementById('downloadBtn1').addEventListener('click', function () {
-            // URL file yang akan diunduh
             const fileUrl = 'assets/brosurRincian/BROSUR.pdf'; 
             const fileName = 'Brosur Pondok.pdf'; 
 
-            // Membuat elemen <a> secara dinamis
             const link = document.createElement('a');
             link.href = fileUrl;
             link.download = fileName;
 
-            // Menambahkan elemen ke DOM, lalu klik
             document.body.appendChild(link);
             link.click();
 
-            // Menghapus elemen setelah selesai
             document.body.removeChild(link);
         });
 
-        // Fungsi untuk mengunduh Rincian Pembayaran Pondok
     document.getElementById('downloadBtn2').addEventListener('click', function () {
-            // URL file yang akan diunduh
             const fileUrl = 'assets/brosurRincian/RINCIAN PEMBAYARAN.pdf'; 
             const fileName = 'Rincian Pembayaran.pdf'; 
 
-            // Membuat elemen <a> secara dinamis
             const link = document.createElement('a');
             link.href = fileUrl;
             link.download = fileName;
 
-            // Menambahkan elemen ke DOM, lalu klik
             document.body.appendChild(link);
             link.click();
 
-            // Menghapus elemen setelah selesai
             document.body.removeChild(link);
         });
 </script>

@@ -1,0 +1,147 @@
+CREATE TABLE tbl_santri (
+    id_santri INT AUTO_INCREMENT PRIMARY KEY,
+    nama_santri VARCHAR(100),
+    ttl DATE,
+    jenis_kelamin ENUM('L', 'P'),
+    anak_ke INT,
+    asal_sekolah VARCHAR(100),
+    alamat TEXT,
+    nama_ayah VARCHAR(100),
+    nama_ibu VARCHAR(100),
+    pekerjaan_ayah VARCHAR(100),
+    pekerjaan_ibu VARCHAR(100),
+    status_ayah VARCHAR(20),
+    status_ibu VARCHAR(20),
+    alamat_orang_tua TEXT,
+    email VARCHAR(100),
+    no_hp_orang_tua VARCHAR(20),
+    wali ENUM('ayah', 'ibu', 'lainnya'),
+    nama_wali VARCHAR(100),
+    pekerjaan_wali VARCHAR(100),
+    penghasilan_wali DECIMAL(10,2),
+    no_hp_wali VARCHAR(20),
+    pas_foto BLOB,
+    akte_kelahiran BLOB,
+    scan_kk BLOB,
+    ktp_ayah BLOB,
+    ktp_ibu BLOB
+) ENGINE=InnoDB;
+
+CREATE TABLE status (
+    id_status INT AUTO_INCREMENT PRIMARY KEY,
+    id_santri INT,
+    status ENUM('pending', 'Diverifikasi'),
+    FOREIGN KEY (id_santri) REFERENCES tbl_santri(id_santri) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+
+CREATE DATABASE ppdb_online;
+
+USE ppdb_online;
+
+CREATE TABLE santri (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_santri VARCHAR(255) NOT NULL,
+    ttl VARCHAR(255) NOT NULL,
+    jenis_kelamin ENUM('laki-laki', 'perempuan') NOT NULL,
+    anak_ke INT NOT NULL,
+    asal_sekolah VARCHAR(255) NOT NULL,
+    alamat TEXT NOT NULL,
+    nama_ayah VARCHAR(255) NOT NULL,
+    nama_ibu VARCHAR(255) NOT NULL,
+    pekerjaan_ayah VARCHAR(255) NOT NULL,
+    pekerjaan_ibu VARCHAR(255) NOT NULL,
+    status_ayah ENUM('Hidup', 'Meninggal') NOT NULL,
+    status_ibu ENUM('Hidup', 'Meninggal') NOT NULL,
+    alamat_orang_tua TEXT NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    no_hp_orang_tua VARCHAR(20) NOT NULL,
+    wali ENUM('ayah', 'ibu', 'lainnya') NOT NULL,
+    nama_wali VARCHAR(255),
+    pekerjaan_wali VARCHAR(255),
+    penghasilan_wali VARCHAR(255),
+    no_hp_wali VARCHAR(20),
+    pas_foto VARCHAR(255),
+    akte_kelahiran VARCHAR(255),
+    scan_kk VARCHAR(255),
+    ktp_ayah VARCHAR(255),
+    ktp_ibu VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+<?php
+include 'config/koneksi.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Ambil data dari form
+    $nama_santri = $_POST['nama_santri'];
+    $ttl = $_POST['ttl'];
+    $jenis_kelamin = $_POST['jenis_kelamin'];
+    $anak_ke = $_POST['anak_ke'];
+    $asal_sekolah = $_POST['asal_sekolah'];
+    $alamat = $_POST['alamat'];
+    $nama_ayah = $_POST['nama_ayah'];
+    $nama_ibu = $_POST['nama_ibu'];
+    $pekerjaan_ayah = $_POST['pekerjaan_ayah'];
+    $pekerjaan_ibu = $_POST['pekerjaan_ibu'];
+    $status_ayah = $_POST['status_ayah'];
+    $status_ibu = $_POST['status_ibu'];
+    $alamat_orang_tua = $_POST['alamat_orang_tua'];
+    $email = $_POST['email'];
+    $no_hp_orang_tua = $_POST['no_hp_orang_tua'];
+    $wali = $_POST['wali'];
+    
+    if ($wali == 'lainnya') {
+        $nama_wali = $_POST['nama_wali'];
+        $pekerjaan_wali = $_POST['pekerjaan_wali'];
+        $penghasilan_wali = $_POST['penghasilan_wali'];
+        $no_hp_wali = $_POST['no_hp_wali'];
+    } else {
+        $nama_wali = null;
+        $pekerjaan_wali = null;
+        $penghasilan_wali = null;
+        $no_hp_wali = null;
+    }
+
+    // Mengambil file upload
+    $pas_foto = addslashes(file_get_contents($_FILES['pas_foto']['tmp_name']));
+    $akte_kelahiran = addslashes(file_get_contents($_FILES['akte_kelahiran']['tmp_name']));
+    $scan_kk = addslashes(file_get_contents($_FILES['scan_kk']['tmp_name']));
+    $ktp_ayah = addslashes(file_get_contents($_FILES['ktp_ayah']['tmp_name']));
+    $ktp_ibu = addslashes(file_get_contents($_FILES['ktp_ibu']['tmp_name']));
+
+    // Query untuk menyimpan data santri
+    $sql_santri = "INSERT INTO santri (nama_santri, ttl, jenis_kelamin, anak_ke, asal_sekolah, alamat, 
+            nama_ayah, nama_ibu, pekerjaan_ayah, pekerjaan_ibu, status_ayah, status_ibu, alamat_orang_tua, 
+            email, no_hp_orang_tua, wali, nama_wali, pekerjaan_wali, penghasilan_wali, no_hp_wali, pas_foto, 
+            akte_kelahiran, scan_kk, ktp_ayah, ktp_ibu) 
+            VALUES ('$nama_santri', '$ttl', '$jenis_kelamin', $anak_ke, '$asal_sekolah', '$alamat', 
+            '$nama_ayah', '$nama_ibu', '$pekerjaan_ayah', '$pekerjaan_ibu', '$status_ayah', '$status_ibu', 
+            '$alamat_orang_tua', '$email', '$no_hp_orang_tua', '$wali', '$nama_wali', '$pekerjaan_wali', 
+            '$penghasilan_wali', '$no_hp_wali', '$pas_foto', '$akte_kelahiran', '$scan_kk', '$ktp_ayah', '$ktp_ibu')";
+
+    if ($conn->query($sql_santri) === TRUE) {
+        // Jika data santri berhasil disimpan, simpan juga ke tabel users
+        $password_default = "password123"; // Password default untuk akun santri
+        $password_hash = password_hash($password_default, PASSWORD_DEFAULT); // Hash password
+
+        // Query untuk menyimpan data user
+        $sql_user = "INSERT INTO users (nama_santri, email, password, role) 
+                     VALUES ('$nama_santri', '$email', '$password_hash', 'santri')";
+
+        if ($conn->query($sql_user) === TRUE) {
+            echo "<script>alert('Pendaftaran berhasil! Akun Anda telah dibuat.'); window.location.href='login.php';</script>";
+        } else {
+            echo "<script>alert('Terjadi kesalahan saat membuat akun pengguna: " . $conn->error . "'); window.location.href='form.php';</script>";
+        }
+
+    } else {
+        echo "<script>alert('Terjadi kesalahan: " . $conn->error . "'); window.location.href='form.php';</script>";
+    }
+
+    // Menutup koneksi
+    $conn->close();
+}
+?>
