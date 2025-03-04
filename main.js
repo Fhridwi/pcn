@@ -1,8 +1,9 @@
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
+document.getElementById("menu-btn").addEventListener("click", function() {
+    document.getElementById("mobile-menu").classList.remove("hidden");
+});
 
-menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
+document.getElementById("close-menu").addEventListener("click", function() {
+    document.getElementById("mobile-menu").classList.add("hidden");
 });
 
  // Variable to track the currently opened FAQ
